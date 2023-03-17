@@ -1,0 +1,7 @@
+package trade.dao;
+
+import trade.vo.TradeVO;
+
+public interface ItradeDao {
+	public int insertBuy(TradeVO tv);
+}

@@ -1,0 +1,39 @@
+package board.dao;
+
+import java.util.List;
+
+import board.vo.BoardVO;
+
+public interface IBoardDao {
+	
+	/**
+	 * BoardVO에 담겨진 데이터를 DB에 insert하는 메서드
+	 * @param bv
+	 * @return
+	 */
+	public int insertBoard(BoardVO bv);
+	
+	/**
+	 * BoardVO객체를 이용하여 DB정보를 update하는 메서드
+	 * @param bv
+	 * @return
+	 */
+	public int updateBoard(BoardVO bv);
+	
+	/**
+	 * 게시글ID를 입력받아 게시글 정보를 삭제하는 메서드
+	 * @param boardId
+	 * @return
+	 */
+	public int deleteBoard(String boardId);
+	
+	/**
+	 * DB에 존재하는 전체 게시글 목록을 조회하는 메서드
+	 * @return
+	 */
+	public List<BoardVO> selectAllBoard();
+	
+
+	
+
+}

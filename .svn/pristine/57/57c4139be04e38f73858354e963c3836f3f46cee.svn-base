@@ -1,0 +1,117 @@
+<%@page import="chat.service.ChatRoomServiceImpl"%>
+<%@page import="chat.service.IChatRoomService"%>
+<%@page import="chat.vo.ChatVO"%>
+<%@page import="member.vo.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%
+
+	String boardId = request.getParameter("boardId");
+	String memIdBuy = request.getParameter("memIdBuy");
+	String memIdSell = request.getParameter("memIdSell");
+	
+	System.out.println("boardId: " + boardId + " memIdBuy: " + memIdBuy + " memIdSell: " + memIdSell);
+	
+%>
+
+<div>
+    <div>
+        <input type="text" id="roomName" value="<%=boardId%>">
+    </div>
+    <div>
+        <input type="text" id="username" value="${memberVO.memId}">
+        <button type="button" id="connBtn">(재)연결</button>
+        <button type="button" id="disconnBtn" disabled>접속끊기</button>
+    </div>
+    <!-- 메시지 표시 영역 -->
+    <div>
+        <textarea id="messageTextArea" readonly="readonly" rows="10" cols="45"></textarea>
+    </div>
+    <div>
+        <!-- 송신 메시지 텍스트박스 -->
+        <input type="text" id="messageText" size="50">
+        <!-- 송신 버튼 -->
+        <button type="button" id="sendBtn" disabled>보내기</button>
+    </div>
+</div>
+
+<script type="application/javascript">
+    "use strict";
+
+    let Chat = {};
+
+    Chat.socket = null;
+
+    Chat.connect = (function (host) {
+        if ('WebSocket' in window) {
+            Chat.socket = new WebSocket(host);
+        } else if ('MozWebSocket' in window) {
+            Chat.socket = new MozWebSocket(host);
+        } else {
+            Console.log('Error: WebSocket을 지원하지 않는 브라우저입니다');
+            return;
+        }
+
+        Chat.socket.onopen = function () {
+            Console.log('Info: WebSocket이 연결되었습니다.');
+            document.getElementById('username').onkeyup = function (event) {
+                if (event.keyCode === 13) {
+                    Chat.socket.send(document.getElementById('username').value);
+                }
+            };
+            document.getElementById('disconnBtn').disabled = false;
+            document.getElementById('disconnBtn').onclick = function () {
+                Chat.socket.close();// 기존 소켓 닫기
+            };
+            document.getElementById('messageText').onkeyup = function (event) {
+                if (event.keyCode === 13) {
+                    Chat.sendMessage();
+                }
+            };
+            document.getElementById('sendBtn').disabled = false;
+            document.getElementById('sendBtn').onclick = function () {
+                Chat.sendMessage();
+            };
+        };
+
+        Chat.socket.onclose = function () {
+            document.getElementById('username').onkeyup = null;
+            document.getElementById('messageText').onkeyup = null;
+            document.getElementById('disconnBtn').disabled = true;
+            document.getElementById('sendBtn').disabled = true;
+            Console.log('Info: WebSocket이 닫혔습니다.');
+        };
+
+        Chat.socket.onmessage = function (message) {
+            Console.log(message.data);
+        };
+    });
+	
+    Chat.initialize = function () {
+        let roomName = document.getElementById('roomName').value;
+        let username = document.getElementById('username').value;
+        Chat.connect('ws' + '://' + window.location.host + '/DaangnProject/chat/' + roomName + '/' + username);
+    };
+	
+    Chat.sendMessage = (function () {
+        let message = document.getElementById('messageText').value;
+        if (message !== '') {
+            Chat.socket.send(message);
+            document.getElementById('messageText').value = '';
+        }
+    });
+	
+    let Console = {};
+	
+    // 메세지 보여주는 메소드
+    Console.log = (function (message) {
+        let console = document.getElementById('messageTextArea');
+        console.value += message + '\n';
+    // 화면이 가장 아래로 내려갔을 때 대화 화면을 위로 올려준다.
+        console.scrollTop = console.scrollHeight;
+    });
+	
+    Chat.initialize();
+	
+</script>

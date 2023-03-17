@@ -1,0 +1,39 @@
+<%@page import="board.vo.BoardVO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@page import="member.vo.MemberVO"%>
+<%
+	MemberVO mv = (MemberVO)session.getAttribute("memberVO");
+
+	List<BoardVO> memList = (List<BoardVO>) request.getAttribute("boardList");
+	System.out.println(memList);
+	System.out.println(request.getAttribute("boardList"));
+	System.out.println(mv);
+	
+%>
+
+    <!-- Head-->
+	<jsp:include page="comm/head.jsp" />
+	
+	<!-- CSS -->
+	<style></style>
+	
+    </head>
+	
+    <body>
+   
+        <!-- Navigation-->
+		<jsp:include page="comm/header.jsp" />
+		
+        <!-- Content -->
+		
+        <!-- Footer-->
+        <jsp:include page="comm/footer.jsp" />
+
+	<!-- JavaScript -->
+	<script></script>
+    </body>
+    
+</html>

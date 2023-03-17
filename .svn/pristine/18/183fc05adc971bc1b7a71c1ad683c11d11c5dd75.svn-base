@@ -1,0 +1,42 @@
+package chat.dao;
+
+import java.util.List;
+
+import comm.dao.MyBatisDAO;
+import chat.vo.ChatVO;
+
+public class ChatRoomDaoImpl implements IChatRoomDao{
+
+	private static IChatRoomDao chatRoom;
+	private ChatRoomDaoImpl() {}
+	public static IChatRoomDao getInstance() {
+		if(chatRoom == null) {
+			chatRoom = new ChatRoomDaoImpl();
+		}return chatRoom;
+	}
+	
+	@Override
+	public int insertChat(ChatVO cv) {
+		return insert("chatRoom.insertChatRoom", cv);
+	}
+
+	@Override
+	public List<ChatVO> listChat() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ChatVO searchChat(ChatVO cv) {
+		// TODO Auto-generated method stub
+		return selectOne("chatRoom.searchChatRoom", cv);
+	}
+
+	@Override
+	public int deleteChat(ChatVO cv) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+}

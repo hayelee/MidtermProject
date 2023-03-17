@@ -1,0 +1,10 @@
+package interest.dao;
+
+import interest.vo.InterestVO;
+
+public interface IinterestDao {
+	
+	public int insertInterest(InterestVO interestVO);
+	
+	public int deleteInterest(InterestVO interestVO);
+}

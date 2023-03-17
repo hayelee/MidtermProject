@@ -1,0 +1,81 @@
+package member.controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import board.service.BoardServiceImpl;
+import board.service.IBoardService;
+import board.vo.BoardVO;
+import manager.service.IManagerService;
+import manager.service.ManagerServiceImpl;
+import manager.vo.ManagerVO;
+import member.service.IMemberService;
+import member.service.MemberServiceImpl;
+import member.vo.MemberVO;
+
+
+@WebServlet("/Login.do")
+public class Login extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+	
+	IMemberService memService = MemberServiceImpl.getInstance();
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		request.getRequestDispatcher("login.signUpIn.html").forward(request, response);
+		doPost(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+		String memId = request.getParameter("memId");
+		String memPw = request.getParameter("memPw");
+		System.out.println("getParameter : " + memId + "/" + memPw);
+		
+		// 게시판 리스트 출력
+		IBoardService boardService = BoardServiceImpl.getInstance();
+		List<BoardVO> boardList = boardService.selectAllBoard();
+		request.setAttribute("boardList", boardList);
+		
+		MemberVO mv = new MemberVO();	
+		mv.setMemId(memId);
+		mv.setMemPw(memPw);
+		
+		mv = memService.findUser(mv);
+		
+		if(mv==null) {
+			System.out.println("mv=null");
+			
+			
+		} else {
+			HttpSession session = request.getSession();
+			session.setAttribute("memberVO", mv);
+			System.out.println("memberVO : " + mv.toString());
+			
+			request.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
+		}
+
+		
+		
+		// 관리자 로그인
+		if (memId.equals("admin")) {
+			
+			IManagerService managerService = ManagerServiceImpl.getInstance();
+			ManagerVO mnv = new ManagerVO();
+			mnv.setManagerId(memId);
+			mnv.setManagerPw(memPw);
+			mnv = managerService.managerLogin(mnv);
+			System.out.println("managerVO : " + mnv.toString());
+			HttpSession session = request.getSession();
+			session.setAttribute("managerVO", mnv);
+			request.getRequestDispatcher("/WEB-INF/view/manager/index2.jsp").forward(request, response);
+		}
+	}
+}

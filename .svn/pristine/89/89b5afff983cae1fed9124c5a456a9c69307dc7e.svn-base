@@ -1,0 +1,5 @@
+package chatContents.dao;
+
+public interface IChatContentsDao {
+
+}

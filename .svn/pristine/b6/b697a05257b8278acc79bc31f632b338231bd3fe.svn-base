@@ -1,0 +1,46 @@
+package chat.service;	
+	
+import java.util.List;
+	
+import chat.dao.ChatRoomDaoImpl;
+import chat.dao.IChatRoomDao;
+import chat.vo.ChatVO;
+	
+public class ChatRoomServiceImpl implements IChatRoomService{
+	
+	private static IChatRoomService chatRoomService;
+	private IChatRoomDao chatRoomDao = ChatRoomDaoImpl.getInstance();
+	
+	private ChatRoomServiceImpl() {};
+	public static IChatRoomService getInstance() {
+		if(chatRoomService==null) {
+			chatRoomService = new ChatRoomServiceImpl();
+		}
+		return chatRoomService;
+	}
+	
+	@Override
+	public int insertChat(ChatVO cv) {
+		
+		return chatRoomDao.insertChat(cv);
+	}
+	
+	@Override
+	public List<ChatVO> listChat() {
+
+		return null;
+	}
+	
+	@Override
+	public ChatVO searchChat(ChatVO cv) {
+
+		return chatRoomDao.searchChat(cv);
+	}
+	
+	@Override
+	public int deleteChat(String boardId) {
+
+		return chatRoomDao.deleteChat(boardId);
+	}
+	
+}

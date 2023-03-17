@@ -1,0 +1,112 @@
+<%@page import="board.vo.BoardVO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@page import="member.vo.MemberVO"%>
+
+<%
+	MemberVO mv = (MemberVO)session.getAttribute("memberVO");
+	System.out.println(mv.getMemId());
+	List<BoardVO> memList = (List<BoardVO>) request.getAttribute("boardList");
+	
+%>
+
+    <!-- Head-->
+	<jsp:include page="../comm/head.jsp" />
+	
+	<!-- CSS -->
+	<style>
+	
+		body {
+	  padding-top: 170px;
+	  padding-bottom: 170px;
+	}
+	</style>
+	
+    </head>
+	
+    <body>
+    
+  
+    
+        <!-- Navigation-->
+		<jsp:include page="../comm/header.jsp" />
+		
+        <!-- Content -->
+        
+        
+        
+        <article>
+	        <div class="container" role="main">
+	        	<h2>상품 등록하기</h2>
+				<form action="/DaangnProject/BoardInsert.do" method="post" enctype="multipart/form-data">
+					<div class="mb-3">	
+						<label for="">제목</label>
+						<input type="text" class="form-control" name="boardTitle" value="" placeholder="제목을 입력해 주세요">
+					</div>
+
+					<div class="mb-3">	
+<!-- 						<label for="">작성자</label> -->
+						<input type="hidden" class="form-control" name="memId" value="<%=mv.getMemId()%>">
+					</div>
+					<div class="mb-3">	
+						<label for="">상품 설명</label>
+						<textarea rows="10" class="form-control" name="boardContents" value=""></textarea>
+					</div>					
+					
+					<div class="mb-3">	
+						<label for="">카테고리</label>
+			            <select name="boardKind" class="form-control">
+							<option>카테고리 선택</option>
+		       			<option value="C001">디지털기기</option>
+	       				<option value="C002">생활가전</option>
+	       				<option value="C003">가구/인테리어</option>
+	       				<option value="C004">생활/주방</option>
+	       				<option value="C005">유아용품</option>
+	       				<option value="C006">의류</option>
+	       				<option value="C007">패션/잡화</option>
+	       				<option value="C008">뷰티/미용</option>
+	       				<option value="C009">취미/게임/음반</option>
+	       				<option value="C010">도서</option>
+	       				<option value="C011">반려동물용품</option>
+	       				<option value="C012">기타중고물품</option>
+		       			</select>
+					</div>
+					
+					<div class="mb-3">	
+						<label for="">가격</label>
+						<input type="text" name="price" value="" class="form-control">
+					</div>
+					<div class="mb-3">	
+						<label for="">상품 사진</label>
+						<input type="file" name="atchFile" class="form-control">
+					</div>					
+<!-- 					<div class="mb-3">	 -->
+<!-- 						<label for="">거래 희망 장소</label> -->
+<!-- 						<input type="text" name="regRange" value="" class="form-control"> -->
+<!-- 					</div>					 -->
+					
+					<button type="submit" class="btn btn-sm btn-primary">작성하기</button>
+					
+				</form>
+			</div>
+		</article>
+
+		  
+		
+
+		
+
+		
+        <!-- Footer-->
+        <jsp:include page="../comm/footer.jsp" />
+
+	<!-- JavaScript -->
+	<script>	
+
+
+	</script>
+    </body>
+    
+</html>

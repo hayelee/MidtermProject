@@ -1,0 +1,142 @@
+package board.vo;
+
+	
+import java.util.Date;
+
+	public class BoardVO {
+
+		private int boardId; // 게시글ID
+		private String memId; // 회원ID
+		private int categoryId; // 카테고리분류ID
+		private String boardTitle; // 게시글제목
+		private String boardContents; // 게시글내용
+		private int price; // 가격
+		private Date regiTime; // 등록시간
+		private Date updateTime; // 업데이트시간
+		private String regRange; // 지역범위
+		private int intCnt; // 관심개수
+		private int chatCnt; //채팅수
+		private int views; // 조회수
+		private int boardStatus; // 판매현황
+		
+
+		public BoardVO() {
+			super();
+		}
+
+		public int getBoardId() {
+			return boardId;
+		}
+
+		public void setBoardId(int boardId) {
+			this.boardId = boardId;
+		}
+
+		public String getMemId() {
+			return memId;
+		}
+
+		public void setMemId(String memId) {
+			this.memId = memId;
+		}
+
+		public int getCategoryId() {
+			return categoryId;
+		}
+
+		public void setCategoryId(int categoryId) {
+			this.categoryId = categoryId;
+		}
+
+		public String getBoardTitle() {
+			return boardTitle;
+		}
+
+		public void setBoardTitle(String boardTitle) {
+			this.boardTitle = boardTitle;
+		}
+
+		public String getBoardContents() {
+			return boardContents;
+		}
+
+		public void setBoardContents(String boardContents) {
+			this.boardContents = boardContents;
+		}
+
+		public int getPrice() {
+			return price;
+		}
+
+		public void setPrice(int price) {
+			this.price = price;
+		}
+
+		public Date getRegiTime() {
+			return regiTime;
+		}
+
+		public void setRegiTime(Date regiTime) {
+			this.regiTime = regiTime;
+		}
+
+		public Date getUpdateTime() {
+			return updateTime;
+		}
+
+		public void setUpdateTime(Date updateTime) {
+			this.updateTime = updateTime;
+		}
+
+		public String getRegRange() {
+			return regRange;
+		}
+
+		public void setRegRange(String regRange) {
+			this.regRange = regRange;
+		}
+
+		public int getIntCnt() {
+			return intCnt;
+		}
+
+		public void setIntCnt(int intCnt) {
+			this.intCnt = intCnt;
+		}
+
+		public int getChatCnt() {
+			return chatCnt;
+		}
+
+		public void setChatCnt(int chatCnt) {
+			this.chatCnt = chatCnt;
+		}
+
+		public int getViews() {
+			return views;
+		}
+
+		public void setViews(int views) {
+			this.views = views;
+		}
+
+		public int getBoardStatus() {
+			return boardStatus;
+		}
+
+		public void setBoardStatus(int boardStatus) {
+			this.boardStatus = boardStatus;
+		}
+
+		@Override
+		public String toString() {
+			return "BoardVO [boardId=" + boardId + ", memId=" + memId + ", categoryId=" + categoryId + ", boardTitle="
+					+ boardTitle + ", boardContents=" + boardContents + ", price=" + price + ", regiTime=" + regiTime
+					+ ", updateTime=" + updateTime + ", regRange=" + regRange + ", intCnt=" + intCnt + ", chatCnt="
+					+ chatCnt + ", views=" + views + ", boardStatus=" + boardStatus + "]";
+		}
+		
+
+	
+
+}

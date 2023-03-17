@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+
+    <!-- Head-->
+	<jsp:include page="comm/head.jsp" />
+	
+    <body>
+   
+        <!-- Navigation-->
+		<jsp:include page="comm/header.jsp" />
+		
+        <!-- Content -->
+
+     
+        <!-- Footer-->
+        <jsp:include page="comm/footer.jsp" />
+
+
+    </body>
+    
+</html>

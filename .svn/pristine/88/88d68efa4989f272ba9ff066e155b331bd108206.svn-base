@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+    <!-- Head-->
+	<jsp:include page="../comm/head.jsp" />
+	
+	<!-- CSS -->
+	<style></style>
+	
+    </head>
+	
+    <body>
+
+   
+        <!-- Navigation-->
+		<jsp:include page="../comm/header.jsp" />
+		
+        <!-- Content -->
+<%-- 		<jsp:include page="./mypageContent.jsp" /> --%>
+		
+<h3>마이페이지 바디</h3>
+<hr>
+<ul>
+	<li><a href="/DaangnProject/profile.do">프로필</a></li>
+	<li><a href="/DaangnProject/modifyProfile.do">회원 정보 수정</a></li>
+	<li><a href="/DaangnProject/follow.do">팔로잉</a></li>
+	<li><a href="/DaangnProject/myDeal.do">나의 거래</a></li>
+	<li><a href="/DaangnProject/myRegion.do">내 동네</a></li>
+	<li><a href="/DaangnProject/regionUpdate.do">동네 등록</a></li>
+	<li><a href="/DaangnProject/alarm.do">알림</a></li>
+	<li><a href="/DaangnProject/cutOff.do">차단 사용자</a></li>
+	<li><a href="/DaangnProject/login/logout.jsp">로그아웃</a></li>
+	<li><a href="/DaangnProject/deleteProfile.do">탈퇴</a></li>
+</ul>
+  
+     	
+   
+     
+        <!-- Footer-->
+        <jsp:include page="../comm/footer.jsp" />
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="./js/scripts.js"></script>
+        
+    </body>
+    
+</html>

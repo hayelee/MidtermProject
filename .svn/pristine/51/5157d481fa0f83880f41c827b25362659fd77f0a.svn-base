@@ -1,0 +1,5 @@
+package follows.dao;
+
+public class FollowsDaoImpl {
+
+}

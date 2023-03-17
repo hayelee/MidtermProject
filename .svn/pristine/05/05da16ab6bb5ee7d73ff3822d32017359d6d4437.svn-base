@@ -1,0 +1,79 @@
+<%@page import="member.vo.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%
+	MemberVO mv = (MemberVO)request.getAttribute("boardMemberVo");
+%>
+
+<!-- Head-->
+	<jsp:include page="../comm/head.jsp" />
+	
+	<!-- CSS -->
+	<style></style>
+	
+<html>
+   <body>
+   		<!-- Navigation-->
+		<jsp:include page="../comm/header.jsp" />
+   
+         <h3>${boardMemberVo.memNic }의 프로필</h3>
+         <!-- Content -->
+		${boardMemberVo.memNic }의 페이지입니다.
+		<div>
+			<%if(mv.getProfile() == null){ %>
+				<img src="assets/basicProfile.png" width="200" height="200"/>
+			<% }else{ %>
+				<img src="assets/<%=mv.getProfile()%>" width="200" height="200"/>
+			<%} %>	
+		</div>
+		<table border="1">
+		<tr>
+			<td>프로필사진:</td>
+			<td>${boardMemberVo.profile}</td>
+		</tr>
+		<tr>
+			<td>I D:</td>
+			<td>${boardMemberVo.memId}</td>
+			<td> </td>
+		</tr>
+		<tr>
+			<td>이름:</td>
+			<td>${boardMemberVo.memName}</td>
+		</tr>
+		<tr>
+			<td>닉네임:</td>
+			<td>${boardMemberVo.memNic}</td>
+		</tr>
+		<tr>
+			<td>전화번호:</td>
+			<td>${boardMemberVo.memTel}</td>
+		</tr>
+		<tr>
+			<td>이메일:</td>
+			<td>${boardMemberVo.memMail}</td>
+		</tr>
+		<tr>
+			<td>주소:</td>
+			<td>${boardMemberVo.memAddr1}</td>
+		</tr>
+		<tr>
+			<td>매너온도:</td>
+			<td>${boardMemberVo.mannersTempNow}</td>
+		</tr>
+	</table>
+     
+      <hr>
+      <ul>
+         <li><a href="/DaangnProject/follows.do?following=${boardMemberVo.memId}">팔로우하기</a></li>
+         <li><a href="/DaangnProject/cancelFollows.do?following=${boardMemberVo.memId}">팔로우취소</a></li>
+         <li><a href="/DaangnProject/follow.do">팔로잉목록</a></li>
+         <li><a href="/">팔로워목록</a></li>
+         <li><a href="/DaangnProject/myDeal.do">${boardMemberVo.memNic}의 거래</a></li>
+      </ul>
+      
+        <!-- Footer-->
+        <jsp:include page="../comm/footer.jsp" />
+        
+   </body>
+</html>

@@ -1,0 +1,10 @@
+package chat.dao;
+
+public class ChatRoomDaoImpl {
+
+	//채팅 내용 저장하기
+	//
+	
+	//채팅 내용 내보내기
+	//select
+}

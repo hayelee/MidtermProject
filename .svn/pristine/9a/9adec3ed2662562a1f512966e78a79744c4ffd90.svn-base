@@ -1,0 +1,97 @@
+<%@page import="board.vo.BoardVO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@page import="member.vo.MemberVO"%>
+
+
+
+<%
+	MemberVO mv = (MemberVO)session.getAttribute("memberVO");
+	System.out.println(mv.getMemId());
+	List<BoardVO> memList = (List<BoardVO>) request.getAttribute("boardList");
+	
+%>
+
+    <!-- Head-->
+	<jsp:include page="../comm/head.jsp" />
+	
+	<!-- CSS -->
+	<style></style>
+	
+    </head>
+	
+    <body>
+    
+        <!-- Navigation-->
+		<jsp:include page="../comm/header.jsp" />
+		
+        <!-- Content -->
+		<form action="/DaangnProject/BoardInsert.do" method="post" enctype="multipart/form-data">
+			<table>
+				<tr>
+					<td>제목</td>
+					<td><input type="text" name="boardTitle" value=""></td>
+				</tr>
+				<tr>
+<!-- 					<td>작성자</td> -->
+					<td><input type="hidden" name="memId" value="<%=mv.getMemId()%>"></td>
+				</tr>
+				<tr>
+					<td>카테고리</td>
+					<td><select name="boardKind">
+						<option>카테고리 선택</option>
+	       				<option value="C001">디지털기기</option>
+	       				<option value="C002">생활가전</option>
+	       				<option value="C003">가구/인테리어</option>
+	       				<option value="C004">생활/주방</option>
+	       				<option value="C005">유아용품</option>
+	       				<option value="C006">의류</option>
+	       				<option value="C007">패션/잡화</option>
+	       				<option value="C008">뷰티/미용</option>
+	       				<option value="C009">취미/게임/음반</option>
+	       				<option value="C010">도서</option>
+	       				<option value="C011">반려동물용품</option>
+	       				<option value="C012">기타중고물품</option>
+	       			</select></td>
+				</tr>
+				<tr>
+					<td>가격</td>
+					<td><input type="text" name="price" value=""></td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td><textarea rows="10" name="boardContents" value=""></textarea></td>			  
+				</tr>
+				<tr>
+					<td>상품 사진</td>
+					<td><input type="file" name="atchFile"></td>
+				</tr>	  
+  
+<!-- 				<tr> -->
+<!-- 					<td>거래 희망 장소</td> -->
+<!-- 					<td><input type="text" name="" value=""></td> -->
+<!-- 				</tr> -->
+			</table>
+			<button type="submit">작성하기</button>
+			
+		</form>
+		
+		  
+		
+
+		
+
+		
+        <!-- Footer-->
+        <jsp:include page="../comm/footer.jsp" />
+
+	<!-- JavaScript -->
+	<script>	
+
+
+	</script>
+    </body>
+    
+</html>

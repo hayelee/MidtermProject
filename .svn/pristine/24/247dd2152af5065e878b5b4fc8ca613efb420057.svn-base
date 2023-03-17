@@ -1,0 +1,42 @@
+package board.service;
+
+import java.util.List;
+
+import board.vo.BoardVO;
+
+public interface IBoardService {
+	
+	/**
+	 * 게시글 등록하기 위한 메서드
+	 * @param bv
+	 * @return
+	 */
+	public int insertBoard(BoardVO bv);
+	
+	/**
+	 * 게시글 수정하기 위한 메서드
+	 * @param bv
+	 * @return
+	 */
+	public int updateBoard(BoardVO bv);
+	
+	/**
+	 * 게시글ID를 매개변수로 받아서 해당 게시글을 삭제하는 메서드
+	 * @param boardId
+	 * @return
+	 */
+	public int deleteBoard(String boardId);
+	
+	/**
+	 * 전체 게시글을 조회하기 위한 메서드
+	 * @return
+	 */
+	public List<BoardVO> selectAllBoard();
+	
+	/**
+	 * DB에 존재하는 게시글 하나를 조회하는 메서드
+	 * @return 게시글 정보를 담고 있는 BoardVO타입 객체
+	 */
+	public BoardVO selectBoard(String boardId);
+
+}

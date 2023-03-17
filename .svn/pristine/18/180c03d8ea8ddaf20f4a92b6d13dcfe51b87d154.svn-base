@@ -1,0 +1,5 @@
+package interest.dao;
+
+public class InterestDaoImpl {
+
+}

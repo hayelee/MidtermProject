@@ -1,0 +1,7 @@
+package trade.service;
+
+import trade.vo.TradeVO;
+
+public interface ItradeService {
+	public int insertBuy(TradeVO tv);
+}

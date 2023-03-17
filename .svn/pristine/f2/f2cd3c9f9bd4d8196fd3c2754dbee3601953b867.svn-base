@@ -1,0 +1,5 @@
+package chatRoom.service;
+
+public interface IChatRoomService {
+
+}

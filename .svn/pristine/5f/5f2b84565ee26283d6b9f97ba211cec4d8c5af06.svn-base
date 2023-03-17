@@ -1,0 +1,49 @@
+<%@page import="member.vo.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%
+	MemberVO mv = (MemberVO)request.getAttribute("mv");
+%>
+<!-- Head-->
+	<jsp:include page="../comm/head.jsp" />
+	
+	<!-- CSS -->
+	<style></style>
+	
+    </head>
+	
+    <body>
+   
+        <!-- Navigation-->
+		<jsp:include page="../comm/header.jsp" />
+		
+        <!-- Content -->
+		내정보페이지
+		<table border="1">
+		<tr>
+			<td>I D:</td>
+			<td><%=mv.getMemId() %></td>
+		</tr>
+		<tr>
+			<td>이름:</td>
+			<td><%=mv.getMemName()%></td>
+		</tr>
+		<tr>
+			<td>전화번호:</td>
+			<td><%=mv.getMemTel() %></td>
+		</tr>
+		<tr>
+			<td>주소:</td>
+			<td><%=mv.getMemAddr1() %></td>
+		</tr>
+	</table>
+     
+        <!-- Footer-->
+        <jsp:include page="../comm/footer.jsp" />
+
+	<!-- JavaScript -->
+	<script></script>
+    </body>
+    
+</html>

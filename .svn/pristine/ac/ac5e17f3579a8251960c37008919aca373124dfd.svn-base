@@ -1,0 +1,52 @@
+package review.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import review.service.IReviewService;
+import review.service.ReviewServiceImpl;
+import review.vo.ReviewVO;
+
+@WebServlet("/review/insert.do")
+public class InsertReviewController extends HttpServlet {
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		req.getRequestDispatcher("/WEB-INF/view/review/insert.jsp").forward(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		// 파라미터값 가져오기
+		String reviewContents = req.getParameter("reviewContents");
+		int reviewScore = Integer.parseInt(req.getParameter("reviewScore"));
+		String memId = req.getParameter("memId");
+		String buyId = req.getParameter("buyId");
+		int chatId = Integer.parseInt(req.getParameter("chatId"));
+		
+		// 서비스 객체 생성하기
+		IReviewService reviewService = ReviewServiceImpl.getInstance();
+		
+		ReviewVO rv = new ReviewVO();
+		rv.setReviewContents(reviewContents);
+		rv.setReviewScore(reviewScore);
+		rv.setMemId(memId);
+		rv.setBuyId(buyId);
+		rv.setChatId(chatId);
+		
+		reviewService.insertReview(rv);
+		
+		resp.sendRedirect(req.getContextPath() + "/review/buyerlist.do");
+	
+	}
+
+	
+
+}

@@ -1,0 +1,17 @@
+package boardReport.dao;
+
+import java.util.List;
+
+import boardReport.vo.BoardReportVO;
+
+public interface IBoardReportDao {
+	
+	/**
+	 * DB에 존재하는 전체 신고 게시글을 조회하는 메서드
+	 * @return 신고 게시글 정보를 담고 있는 List타입 객체
+	 */
+	public List<BoardReportVO> selectAllBoardReport();
+	
+	
+
+}

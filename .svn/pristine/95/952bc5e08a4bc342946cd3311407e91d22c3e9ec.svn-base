@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+    <!-- Head-->
+	<jsp:include page="../comm/head.jsp" />
+	
+	<!-- CSS -->
+	<style></style>
+	
+    </head>
+	
+    <body>
+   
+        <!-- Navigation-->
+		<jsp:include page="header2.jsp" />
+		
+        <!-- Content -->
+        <h4>관리자 페이지</h4>
+        <hr>
+        <a href="<%=request.getContextPath()%>/memReport/list.do">신고 회원 관리</a>
+        <hr>
+        <a href="<%=request.getContextPath()%>/boardReport/list.do">신고 게시글 관리</a>
+        <hr>
+        <a href="<%=request.getContextPath()%>/notice/list.do">공지사항</a>
+     
+        <!-- Footer-->
+        <jsp:include page="../comm/footer.jsp" />
+
+	<!-- JavaScript -->
+	<script></script>
+    </body>
+    
+</html>

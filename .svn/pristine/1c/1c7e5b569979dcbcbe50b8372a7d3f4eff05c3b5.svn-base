@@ -1,0 +1,49 @@
+package board.dao;
+
+import java.util.List;
+
+import board.vo.BoardVO;
+import comm.dao.MyBatisDAO;
+
+public class BoardDaoImpl extends MyBatisDAO implements IBoardDao {
+
+	private static IBoardDao boardDao;
+	
+	private BoardDaoImpl() {
+		
+	}
+	
+	public static IBoardDao getInstance() {
+		if(boardDao == null) {
+			boardDao = new BoardDaoImpl();
+		}
+		return boardDao;
+	}
+	
+	@Override
+	public int insertBoard(BoardVO bv) {
+		return insert("board.boardInsert", bv);
+	}
+
+	@Override
+	public int updateBoard(BoardVO bv) {
+		return 0;
+	}
+
+	@Override
+	public int deleteBoard(String boardId) {
+		return delete("board.boardDelete", boardId);
+	}
+
+	@Override
+	public List<BoardVO> selectAllBoard() {
+		return selectList("board.boardList", null);
+	}
+
+	@Override
+	public BoardVO selectBoard(String boardId) {
+		return selectOne("board.boardSearch", boardId);
+	}
+
+
+}

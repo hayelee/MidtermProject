@@ -1,0 +1,69 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@page import="member.vo.MemberVO"%>
+<%
+	MemberVO mv = (MemberVO)session.getAttribute("memberVO");
+	if(mv==null){
+		response.sendRedirect("mypage.jsp");
+		System.out.println("modifyProfile.jsp => mv = null");
+	} else {
+%>
+
+    <!-- Head-->
+	<jsp:include page="../comm/head.jsp" />
+	
+	<!-- CSS -->
+	<style></style>
+	
+    </head>
+	
+    <body>
+   
+        <!-- Navigation-->
+		<jsp:include page="../comm/header.jsp" />
+		
+        <!-- Content -->
+		<h3>회원정보 수정 페이지</h3>
+		<hr>
+		
+		<form action="/DaangnProject/modifyProfile_detail.do" method="get">
+	        <div class="input-group">
+				프로필사진 : 
+				<%if(mv.getProfile() == null){ %>
+				<img src="assets/basicProfile.png" width="200" height="200"/>
+				<% }else{ %>
+				<img src="assets/<%=mv.getProfile()%>" width="200" height="200"/>
+				<%} %>
+				<input type="file" name="profile" id="modifyProfile" accept="image/*" value="<%=mv.getProfile()%>" >
+	        </div>
+	        <div class="input-group">
+				닉네임 : <input type="text" name="memNic" id="modifyMemNic" value="<%=mv.getMemNic()%>" >
+	        </div>
+	        <div class="input-group">
+				이름 : <input type="text" name="memName" id="modifyMemName" value="<%=mv.getMemName()%>" >
+	        </div>
+	        <div class="input-group">
+				전화번호 : <input type="text" name="memTel" id="modifyMemTel" value="<%=mv.getMemTel()%>" >
+	        </div>
+	        <div class="input-group">
+				이메일 : <input type="text" name="memMail" id="modifyMemMail" value="<%=mv.getMemMail()%>" >
+	        </div>
+	        
+	        <button id="modify" type="submit" onClick="modifyAlert()"> 
+				수정하기
+	        </button>
+		</form>
+     
+        <!-- Footer-->
+        <jsp:include page="../comm/footer.jsp" />
+
+	<!-- JavaScript -->
+	<script>
+	function modifyAlert(){
+		alert("수정 완료!");
+	}
+	</script>
+    </body>
+    
+</html>
+<%}%>

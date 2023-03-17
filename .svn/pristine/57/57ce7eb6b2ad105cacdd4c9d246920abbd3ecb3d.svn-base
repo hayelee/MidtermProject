@@ -1,0 +1,5 @@
+package chatRoom.service;
+
+public class ChatRoomServiceImpl {
+
+}

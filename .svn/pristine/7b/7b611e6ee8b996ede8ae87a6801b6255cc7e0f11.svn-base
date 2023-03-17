@@ -1,0 +1,43 @@
+package board.dao;
+
+import java.util.List;
+
+import board.vo.BoardVO;
+
+public class BoardDaoImpl implements IBoardDao {
+
+	private static IBoardDao boardDao;
+	
+	private BoardDaoImpl() {
+		
+	}
+	
+	public static IBoardDao getInstance() {
+		if(boardDao == null) {
+			boardDao = new BoardDaoImpl();
+		}
+		return boardDao;
+	}
+	
+	@Override
+	public int insertBoard(BoardVO bv) {
+		return 0;
+	}
+
+	@Override
+	public int updateBoard(BoardVO bv) {
+		return 0;
+	}
+
+	@Override
+	public int deleteBoard(String boardId) {
+		return 0;
+	}
+
+	@Override
+	public List<BoardVO> selectAllBoard() {
+		return null;
+	}
+
+
+}

@@ -1,0 +1,48 @@
+<%@page import="member.vo.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+	
+	MemberVO mv = (MemberVO)request.getAttribute("mv");
+
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Find PW Result</title>
+</head>
+<body>
+		<%
+			if (mv != null && mv.getMemPw() != null) {
+		%>
+
+		<div>
+			<div>
+				<h4>회원님의 비밀번호는</h4>
+				<div><%=mv.getMemPw()%></div>
+				<h4>입니다</h4>
+			</div>
+			<div>
+				<input type="submit" value="로그인" onclick="location.href='login/signUpIn.html'"/>
+			</div>
+		</div>
+		<%
+			} else {
+		%>
+		<div>
+			<div>
+				<h4>등록된 정보가 없습니다</h4>
+			</div>
+			<div>
+				<input type="submit" value="다시 찾기"
+					onClick="location.href='login/findPw.jsp'" /> 
+			</div>
+		</div>
+
+		<%
+			}
+		%>
+</body>
+</html>

@@ -1,0 +1,5 @@
+package interest.service;
+
+public interface iInterestService {
+
+}

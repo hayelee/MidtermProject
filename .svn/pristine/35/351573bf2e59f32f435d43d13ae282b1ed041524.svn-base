@@ -1,0 +1,62 @@
+package notice;
+
+import java.util.Date;
+
+public class NoticeVO {
+	
+	private int noticeId;
+	private String noticeTitle;
+	private String noticeContent;
+	private Date notionDate;
+	private String managerId;
+	
+	public NoticeVO() {
+	}
+
+	public int getNoticeId() {
+		return noticeId;
+	}
+
+	public void setNoticeId(int noticeId) {
+		this.noticeId = noticeId;
+	}
+
+	public String getNoticeTitle() {
+		return noticeTitle;
+	}
+
+	public void setNoticeTitle(String noticeTitle) {
+		this.noticeTitle = noticeTitle;
+	}
+
+	public String getNoticeContent() {
+		return noticeContent;
+	}
+
+	public void setNoticeContent(String noticeContent) {
+		this.noticeContent = noticeContent;
+	}
+
+	public Date getNotionDate() {
+		return notionDate;
+	}
+
+	public void setNotionDate(Date notionDate) {
+		this.notionDate = notionDate;
+	}
+
+	public String getManagerId() {
+		return managerId;
+	}
+
+	public void setManagerId(String managerId) {
+		this.managerId = managerId;
+	}
+
+	@Override
+	public String toString() {
+		return "NoticeVO [noticeId=" + noticeId + ", noticeTitle=" + noticeTitle + ", noticeContent=" + noticeContent
+				+ ", notionDate=" + notionDate + ", managerId=" + managerId + "]";
+	}
+	
+}

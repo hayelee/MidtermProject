@@ -1,0 +1,51 @@
+package board.service;
+
+import java.util.List;
+
+import board.dao.BoardDaoImpl;
+import board.dao.IBoardDao;
+import board.vo.BoardVO;
+
+public class BoardServiceImpl implements IBoardService {
+	
+	private static IBoardService boardService;
+	
+	private IBoardDao boardDao;
+	
+	private BoardServiceImpl() {
+		boardDao = BoardDaoImpl.getInstance();
+	}
+	
+	public static IBoardService getInstance() {
+		if(boardService == null) {
+			boardService = new BoardServiceImpl();
+		}
+		return boardService;
+	}
+	
+	@Override
+	public int insertBoard(BoardVO bv) {
+		int cnt = boardDao.insertBoard(bv);
+		return cnt;
+	}
+
+	@Override
+	public int updateBoard(BoardVO bv) {
+		int cnt = boardDao.updateBoard(bv);
+		return cnt;
+	}
+
+	@Override
+	public int deleteBoard(String boardId) {
+		int cnt = boardDao.deleteBoard(boardId);
+		return cnt;
+	}
+
+	@Override
+	public List<BoardVO> selectAllBoard() {
+		List<BoardVO> boardList = boardDao.selectAllBoard();
+		return boardList;
+	}
+
+	
+}

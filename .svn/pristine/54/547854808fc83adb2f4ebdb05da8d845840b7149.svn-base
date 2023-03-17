@@ -1,0 +1,89 @@
+<%@page import="member.vo.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%
+	MemberVO mv = (MemberVO)session.getAttribute("memberVO");
+%>
+
+<!-- Head-->
+	<jsp:include page="../comm/head.jsp" />
+	
+	<!-- CSS -->
+	<style></style>
+	
+<html>
+   <body>
+   		<!-- Navigation-->
+		<jsp:include page="../comm/header.jsp" />
+   
+         <h3>마이페이지</h3>
+         <!-- Content -->
+		내정보페이지
+		<div>
+			<%if(mv.getProfile() == null){ %>
+				<img src="assets/basicProfile.png" width="200" height="200"/>
+			<% }else{ %>
+				<img src="assets/<%=mv.getProfile()%>" width="200" height="200"/>
+			<%} %>	
+		</div>
+		<table border="1">
+		<tr>
+			<td>프로필사진:</td>
+			<td><%=mv.getProfile()%></td>
+		</tr>
+		<tr>
+			<td>I D:</td>
+			<td><%=mv.getMemId() %></td>
+		</tr>
+		<tr>
+			<td>이름:</td>
+			<td><%=mv.getMemName()%></td>
+		</tr>
+		<tr>
+			<td>닉네임:</td>
+			<td><%=mv.getMemNic()%></td>
+		</tr>
+		<tr>
+			<td>전화번호:</td>
+			<td><%=mv.getMemTel() %></td>
+		</tr>
+		<tr>
+			<td>이메일:</td>
+			<td><%=mv.getMemMail() %></td>
+		</tr>
+		<tr>
+			<td>주소1:</td>
+			<td><%=mv.getMemAddr1() %></td>
+		</tr>
+		<tr>
+			<td>주소2:</td>
+			<td><%=mv.getMemAddr2() %></td>
+		</tr>
+		<tr>
+			<td>주소3:</td>
+			<td><%=mv.getMemAddr3() %></td>
+		</tr>
+		<tr>
+			<td>매너온도:</td>
+			<td><%=mv.getMannersTempNow() %></td>
+		</tr>
+	</table>
+     
+      <hr>
+      <ul>
+         <li><a href="/DaangnProject/modifyProfile.do">회원 정보 수정</a></li>
+         <li><a href="/DaangnProject/follow.do">팔로잉</a></li>
+         <li><a href="/DaangnProject/myDeal.do">나의 거래</a></li>
+         <li><a href="/DaangnProject/regionUpdate.do">동네 등록</a></li>
+         <li><a href="/DaangnProject/alarm.do">알림</a></li>
+         <li><a href="/DaangnProject/cutOff.do">차단 사용자</a></li>
+         <li><a href="/DaangnProject/login/logout.jsp">로그아웃</a></li>
+         <li><a href="/DaangnProject/deleteProfile.do">탈퇴</a></li>
+      </ul>
+      
+        <!-- Footer-->
+        <jsp:include page="../comm/footer.jsp" />
+        
+   </body>
+</html>

@@ -1,0 +1,76 @@
+package chatContents.vo;
+
+import java.util.Date;
+
+public class ChatContentsVO {
+	
+	private int chatcontId;
+	private String chatContents;
+	private Date chatSenddate;
+	private int chatCheck;
+	private int chatId;
+	private String memId;
+	
+	public ChatContentsVO() {
+		super();
+	}
+
+	public int getChatcontId() {
+		return chatcontId;
+	}
+
+	public void setChatcontId(int chatcontId) {
+		this.chatcontId = chatcontId;
+	}
+
+	public String getChatContents() {
+		return chatContents;
+	}
+
+	public void setChatContents(String chatContents) {
+		this.chatContents = chatContents;
+	}
+
+	public Date getChatSenddate() {
+		return chatSenddate;
+	}
+
+	public void setChatSenddate(Date chatSenddate) {
+		this.chatSenddate = chatSenddate;
+	}
+
+	public int getChatCheck() {
+		return chatCheck;
+	}
+
+	public void setChatCheck(int chatCheck) {
+		this.chatCheck = chatCheck;
+	}
+
+	public int getChatId() {
+		return chatId;
+	}
+
+	public void setChatId(int chatId) {
+		this.chatId = chatId;
+	}
+
+	public String getMemId() {
+		return memId;
+	}
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+
+	@Override
+	public String toString() {
+		return "ChatContents [chatcontId=" + chatcontId + ", chatContents=" + chatContents + ", chatCheck=" + chatCheck
+				+ ", chatId=" + chatId + ", memId=" + memId + "]";
+	}
+	
+	
+	
+	
+
+}

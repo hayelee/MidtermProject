@@ -1,0 +1,5 @@
+package chatContents.vo;
+
+public class ChatContentsVO {
+
+}

@@ -1,0 +1,98 @@
+package review.vo;
+
+import java.util.Date;
+
+public class ReviewVO {
+
+	private String reviewId; // 거래 후기 ID(코드)
+	private String reviewContents; // 거래 후기 내용
+	private int reviewScore; // 별점
+	private Date reviewDate; // 거래 후기 작성 날짜
+	private String memId; // 평가자 ID
+	private String buyId; // 거래 ID
+	private int chatId; // 채팅방 ID
+	
+	private String memId2; // 평가받은 회원ID
+	
+	public ReviewVO() {
+		super();
+	}
+
+	public String getReviewId() {
+		return reviewId;
+	}
+
+	public void setReviewId(String reviewId) {
+		this.reviewId = reviewId;
+	}
+
+	public String getReviewContents() {
+		return reviewContents;
+	}
+
+	public void setReviewContents(String reviewContents) {
+		this.reviewContents = reviewContents;
+	}
+
+	public int getReviewScore() {
+		return reviewScore;
+	}
+
+	public void setReviewScore(int reviewScore) {
+		this.reviewScore = reviewScore;
+	}
+
+	public Date getReviewDate() {
+		return reviewDate;
+	}
+
+	public void setReviewDate(Date reviewDate) {
+		this.reviewDate = reviewDate;
+	}
+
+	public String getMemId() {
+		return memId;
+	}
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+
+	public String getBuyId() {
+		return buyId;
+	}
+
+	public void setBuyId(String buyId) {
+		this.buyId = buyId;
+	}
+
+	public String getMemId2() {
+		return memId2;
+	}
+
+	public void setMemId2(String memId2) {
+		this.memId2 = memId2;
+	}
+
+	public int getChatId() {
+		return chatId;
+	}
+
+	public void setChatId(int chatId) {
+		this.chatId = chatId;
+	}
+
+	@Override
+	public String toString() {
+		return "ReviewVO [reviewId=" + reviewId + ", reviewContents=" + reviewContents + ", reviewScore=" + reviewScore
+				+ ", reviewDate=" + reviewDate + ", memId=" + memId + ", buyId=" + buyId + ", chatId=" + chatId
+				+ ", memId2=" + memId2 + "]";
+	}
+
+	
+
+	
+	
+	
+	
+}

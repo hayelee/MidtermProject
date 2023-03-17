@@ -1,0 +1,110 @@
+package chat.vo;
+
+import java.util.Date;
+
+public class ChatVO {
+	
+	private int chatId;
+	private String memId;
+	private int boardId;
+	private String chatPrice;
+	private int chatAccept;
+	private String chatContent;
+	private Date chatSendDate;
+	private int chatCheck;
+	
+
+	public ChatVO() {
+		super();
+	}
+
+
+	public int getChatId() {
+		return chatId;
+	}
+
+
+	public void setChatId(int chatId) {
+		this.chatId = chatId;
+	}
+
+
+	public String getMemId() {
+		return memId;
+	}
+
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+
+
+	public int getBoardId() {
+		return boardId;
+	}
+
+
+	public void setBoardId(int boardId) {
+		this.boardId = boardId;
+	}
+
+
+	public String getChatPrice() {
+		return chatPrice;
+	}
+
+
+	public void setChatPrice(String chatPrice) {
+		this.chatPrice = chatPrice;
+	}
+
+
+	public int getChatAccept() {
+		return chatAccept;
+	}
+
+
+	public void setChatAccept(int chatAccept) {
+		this.chatAccept = chatAccept;
+	}
+
+
+	public String getChatContent() {
+		return chatContent;
+	}
+
+
+	public void setChatContent(String chatContent) {
+		this.chatContent = chatContent;
+	}
+
+
+	public Date getChatSendDate() {
+		return chatSendDate;
+	}
+
+
+	public void setChatSendDate(Date chatSendDate) {
+		this.chatSendDate = chatSendDate;
+	}
+
+
+	public int getChatCheck() {
+		return chatCheck;
+	}
+
+
+	public void setChatCheck(int chatCheck) {
+		this.chatCheck = chatCheck;
+	}
+
+
+	@Override
+	public String toString() {
+		return "ChatVO [chatId=" + chatId + ", memId=" + memId + ", boardId=" + boardId + ", chatPrice=" + chatPrice
+				+ ", chatAccept=" + chatAccept + ", chatContent=" + chatContent + ", chatSendDate=" + chatSendDate
+				+ ", chatCheck=" + chatCheck + "]";
+	}
+
+	
+}

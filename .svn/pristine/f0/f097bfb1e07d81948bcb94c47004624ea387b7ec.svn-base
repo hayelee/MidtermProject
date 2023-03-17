@@ -1,0 +1,36 @@
+package notice.dao;
+
+import java.util.List;
+
+import notice.vo.NoticeVO;
+
+public interface INoticeDao {
+	
+	/**
+	 * NoticeVO에 담긴 데이터를 DB에 insert하는 메서드
+	 * @param nv DB에 insert할 데이터가 저장된 NoticeVO객체
+	 * @return DB 작업이 성공하면 1 이상의 값이 반환됨
+	 */
+	public int insertNotice(NoticeVO nv);
+	
+//	public int updateNotice(NoticeVO nv);
+	
+	public int deleteNotice(String noticeId);
+	
+	/**
+	 * DB에 존재하는 전체 공지사항을 조회하기 위한 메서드
+	 * @return 게시글 정보를 담고 있는 List타입의 객체
+	 */
+	public List<NoticeVO> selectAllNotice();
+	
+	/**
+	 * 주어진 게시글ID에 해당하는 게시글 정보를 알아내기 위한 메서드
+	 * @param noticeId 확인대상 게시글ID
+	 * @return 해당 게시글ID에 맞는 게시글 정보
+	 */
+	public NoticeVO getNotice(String noticeId);
+	
+	
+	
+
+}

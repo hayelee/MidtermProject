@@ -1,0 +1,5 @@
+package interest.controller;
+
+public class InterestListController {
+
+}

@@ -1,0 +1,5 @@
+package chatRoom.vo;
+
+public class ChatRoomVO {
+
+}

@@ -1,0 +1,82 @@
+<%@page import="board.vo.BoardVO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@page import="member.vo.MemberVO"%>
+
+
+<%
+	MemberVO mv = (MemberVO)session.getAttribute("memberVO");
+	System.out.println(mv.getMemId());
+	List<BoardVO> memList = (List<BoardVO>) request.getAttribute("boardList");
+	
+%>
+
+    <!-- Head-->
+	<jsp:include page="../comm/head.jsp" />
+	
+	<!-- CSS -->
+	<style></style>
+	
+    </head>
+	
+    <body>
+    
+        <!-- Navigation-->
+		<jsp:include page="../comm/header.jsp" />
+		
+        <!-- Content -->
+		<form action="/DaangnProject/BoardInsert.do" method="post" enctype="multipart/form-data">
+			<table>
+				<tr>
+					<td>제목</td>
+					<td><input type="text" name="boardTitle" value=""></td>
+				</tr>
+				<tr>
+					<td>작성자</td>
+					<td><input type="text" name="memId" value="<%=mv.getMemId()%>"><%=mv.getMemId()%></td>
+				</tr>
+				<tr>
+					<td>카테고리</td>
+		            <select name="boardKind">
+						<option>카테고리 선택</option>
+	       				<option value="C001">인기매물</option>
+	       			</select>
+				</tr>
+				<tr>
+					<td>가격</td>
+					<td><input type="text" name="price" value=""></td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td><textarea rows="10" name="boardContents" value=""></textarea></td>					  
+				</tr>
+				<tr>
+					<td>상품 사진</td>
+					<td><input type="file" name="atchFile"></td>
+				</tr>	  
+				<tr>
+					<td>거래 희망 장소</td>
+					<td><input type="text" name="regRange" value=""></td>
+				</tr>
+			</table>
+			<button type="submit">작성하기</button>
+			
+		</form>
+		
+
+		
+
+		
+        <!-- Footer-->
+        <jsp:include page="../comm/footer.jsp" />
+
+	<!-- JavaScript -->
+	<script>	
+	
+
+	</script>
+    </body>
+    
+</html>

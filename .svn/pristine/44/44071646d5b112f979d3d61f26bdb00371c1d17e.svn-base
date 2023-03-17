@@ -1,0 +1,32 @@
+<%@page import="follows.vo.FollowsVO"%>
+<%@page import="java.util.List"%>
+<%@page import="follows.service.FollowsServiceImpl"%>
+<%@page import="follows.service.IFollowsService"%>
+<%@page import="member.vo.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%
+	MemberVO mv2 = (MemberVO)session.getAttribute("memberVO");
+%>
+
+<!-- Head-->
+	<jsp:include page="../comm/head.jsp" />
+	
+	<!-- CSS -->
+	<style></style>
+	
+<html>
+   <body>
+   		<!-- Navigation-->
+		<jsp:include page="../comm/header.jsp" />
+   
+         <h3>나의 찜목록</h3>
+         <!-- Content -->
+		관심목록 페이지입니다.
+		
+        <!-- Footer-->
+        <jsp:include page="../comm/footer.jsp" />
+        
+   </body>
+</html>

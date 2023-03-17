@@ -1,0 +1,61 @@
+package board.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import board.service.BoardServiceImpl;
+import board.service.IBoardService;
+import board.vo.BoardVO;
+import comm.service.AtchFileServiceImpl;
+import comm.service.IAtchFileService;
+import comm.vo.AtchFileVO;
+
+/**
+ * Servlet implementation class BoardUpdate
+ */
+@WebServlet("/BoardUpdate.do")
+public class BoardUpdate extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		doPost(request, response);
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String boardTitle = request.getParameter("boardTitle");
+		String priceString = request.getParameter("price");
+		int price = Integer.parseInt(priceString);
+		String boardContents = request.getParameter("boardContents");
+		
+		IAtchFileService fileService = AtchFileServiceImpl.getInstance();
+		AtchFileVO atchFileVO = new AtchFileVO();
+		atchFileVO = fileService.saveAtchFileList(request);
+		
+		BoardVO bv = new BoardVO();
+		bv.setBoardTitle(boardTitle);
+		bv.setPrice(price);
+		bv.setBoardContents(boardContents);
+		bv.setFileStreCours(atchFileVO.getFileStreCours());
+		
+		IBoardService boardService = BoardServiceImpl.getInstance();
+		
+		int cnt = boardService.updateBoard(bv);
+		if(cnt>0) {
+			request.setAttribute("msg", "글 수정 완료");
+			request.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
+		}else {			
+			request.setAttribute("msg", "글 수정 실패");
+			request.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);			
+		}
+		
+	}
+
+}

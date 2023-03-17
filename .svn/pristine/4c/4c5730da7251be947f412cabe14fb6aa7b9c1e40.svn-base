@@ -1,0 +1,60 @@
+package memReport;
+
+import java.util.Date;
+
+public class MemReportVO {
+
+	private int memReportId;
+	private String memReportContent;
+	private Date memReportDate;
+	private String memId1;
+	private String memId2;
+	private int reportResult;
+	
+	public MemReportVO() {
+		super();
+	}
+	public int getMemReportId() {
+		return memReportId;
+	}
+	public void setMemReportId(int memReportId) {
+		this.memReportId = memReportId;
+	}
+	public String getMemReportContent() {
+		return memReportContent;
+	}
+	public void setMemReportContent(String memReportContent) {
+		this.memReportContent = memReportContent;
+	}
+	public Date getMemReportDate() {
+		return memReportDate;
+	}
+	public void setMemReportDate(Date memReportDate) {
+		this.memReportDate = memReportDate;
+	}
+	public String getMemId1() {
+		return memId1;
+	}
+	public void setMemId1(String memId1) {
+		this.memId1 = memId1;
+	}
+	public String getMemId2() {
+		return memId2;
+	}
+	public void setMemId2(String memId2) {
+		this.memId2 = memId2;
+	}
+	public int getReportResult() {
+		return reportResult;
+	}
+	public void setReportResult(int reportResult) {
+		this.reportResult = reportResult;
+	}
+	@Override
+	public String toString() {
+		return "MemReportVO [memReportId=" + memReportId + ", memReportContent=" + memReportContent + ", memId1="
+				+ memId1 + ", memId2=" + memId2 + ", reportResult=" + reportResult + "]";
+	}
+	
+	
+}

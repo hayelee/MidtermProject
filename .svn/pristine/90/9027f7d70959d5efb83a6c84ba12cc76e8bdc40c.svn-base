@@ -1,0 +1,60 @@
+package trade;
+
+import java.util.Date;
+
+public class TradeVO {
+	
+	private int buyId;
+	private int chatId;
+	private String memId;
+	private int boardId;
+	private int price;
+	private Date tradeDate;
+	
+	public TradeVO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public int getBuyId() {
+		return buyId;
+	}
+	public void setBuyId(int buyId) {
+		this.buyId = buyId;
+	}
+	public int getChatId() {
+		return chatId;
+	}
+	public void setChatId(int chatId) {
+		this.chatId = chatId;
+	}
+	public String getMemId() {
+		return memId;
+	}
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+	public int getBoardId() {
+		return boardId;
+	}
+	public void setBoardId(int boardId) {
+		this.boardId = boardId;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public Date getTradeDate() {
+		return tradeDate;
+	}
+	public void setTradeDate(Date tradeDate) {
+		this.tradeDate = tradeDate;
+	}
+	@Override
+	public String toString() {
+		return "TradeVO [buyId=" + buyId + ", chatId=" + chatId + ", memId=" + memId + ", boardId=" + boardId
+				+ ", price=" + price + ", tradeDate=" + tradeDate + "]";
+	}
+	
+}

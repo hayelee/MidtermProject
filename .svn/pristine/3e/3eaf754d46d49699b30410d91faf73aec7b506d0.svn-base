@@ -1,0 +1,23 @@
+package memReport.dao;
+
+import java.util.List;
+
+import memReport.vo.MemReportVO;
+
+public interface IMemReportDao {
+	
+	/**
+	 * DB에 존재하는 전체 신고 회원을 조회하는 메서드
+	 * @return 신고 회원 정보를 담고 있는 List타입 객체
+	 */
+	public List<MemReportVO> selectAllMemReport();
+	
+	/**
+	 * 주어진 회원신고ID에 해당하는 신고 내용을 알아내는 메서드
+	 * @param memReportId 확인대상 회원신고ID
+	 * @return 해당 회원신고ID에 맞는 신고글 정보
+	 */
+	public MemReportVO getMemReport(String memReportId);
+	
+
+}
